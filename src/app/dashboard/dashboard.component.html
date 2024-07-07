@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="sideBarStatus" class="col-lg-1 d-flex flex-column bg-dark p-3">
+            <a href="" style="text-decoration: none; color: white;" class="py-3 fw-bolder" routerLink="/dashboard">Home</a>
+            <a href="" style="text-decoration: none; color: white;" class="py-3 fw-bolder" routerLink="/users">Users</a>
+            <button (click)="logout()" class="btn text-light mt-auto fw-bolder">Logout</button>
+        </div>
+        <div class="col">
+           <div class="row mt-2">
+            <div class="col-lg-8">
+                <div style="height: 140px; background-image: url('https://cdn.pixabay.com/photo/2017/01/18/10/43/banner-1989514_1280.png'); background-size: cover;" class="d-flex banner rounded p-3 align-items-center shadow">
+                    <h1> <i (click)="mebuBtnClicked()" class="fa-solid fa-bars btn text-light fa-1x"></i>
+                        Welcome {{adminName}}
+                    </h1>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-6">
+                        <app-calendar></app-calendar>
+                    </div>
+                    <div class="col-lg-6">
+                        <app-chart></app-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="height: 370px;" class="rounded p-2 border shadow">
+                    <app-edit-admin (onAdminChange)="adminChange($event)"></app-edit-admin>
+                </div>
+                <div style="height: 130px; background-image: url('https://cdn.pixabay.com/photo/2017/01/18/10/43/banner-1989514_1280.png'); background-size: cover;" class="d-flex banner rounded p-3 align-items-center shadow">
+                    <h3> <i class="fa-solid fa-users btn text-light fa-1x"></i>
+                        Total Employees : <span class="text-light">{{userCount}}</span> </h3>
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
